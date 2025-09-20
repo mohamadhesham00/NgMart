@@ -1,0 +1,21 @@
+@if (isUserLogged) {
+
+<a routerLink="/wishlist">
+  <i class="icons fa-solid fa-heart"></i>
+</a>
+<a routerLink="/cart">
+  <i class="icons fa-solid fa-cart-shopping"></i>
+</a>
+
+<p-menu #menu [model]="items" [popup]="true" />
+<i
+  class="icons pi pi-user"
+  (click)="menu.toggle($event)"
+  style="font-size: 1.5rem; margin-left: 0.5rem"
+></i>
+
+} @else{
+
+<a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+
+}

@@ -1,0 +1,7 @@
+a:hover .icons:hover {
+  color: #ff4757;
+  scale: 1.1;
+}
+.btn {
+  background-color: transparent !important;
+}

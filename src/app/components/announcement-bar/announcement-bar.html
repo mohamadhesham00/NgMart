@@ -1,0 +1,18 @@
+<div class="announcement-bar-container">
+  <p-carousel
+    [value]="announcements"
+    [circular]="true"
+    [autoplayInterval]="2500"
+    [numVisible]="1"
+    [numScroll]="1"
+    [showNavigators]="false"
+    [showIndicators]="false"
+    styleClass="announcement-carousel"
+  >
+    <ng-template pTemplate="item" let-announcement>
+      <div class="announcement-item">
+        <span class="p-text-color-secondary">{{ announcement }}</span>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>

@@ -1,0 +1,62 @@
+#offcanvasNavbar {
+  width: 80%;
+}
+nav {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #bcbcbc;
+}
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline (initially hidden) */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* underline sits at the bottom */
+  width: 0;
+  height: 2px;
+  background-color: #ff4757; /* underline color */
+  transition: width 0.3s ease;
+}
+
+/* On hover, expand underline */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active link always shows underline */
+.nav-link.active::after {
+  width: 100%;
+}
+/* When hovering over the nav (any link), remove underline from the active one */
+.navbar-nav:hover .nav-link.active::after {
+  width: 0;
+}
+@media (max-width: 768px) {
+  nav .container {
+    justify-content: space-between !important;
+  }
+  .nav-link {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+  .nav-link::after {
+    display: none !important;
+  }
+}

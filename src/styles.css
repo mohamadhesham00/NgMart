@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+:root {
+  --p-font-family: 'poppins', sans-serif;
+  --p-carousel-indicator-active-background: #ff4757 !important;
+  --p-rating-icon-active-color: #ffad33 !important;
+  /* --p-menu-background: transparent !important; */
+}
+
+body {
+  font-family: var(--p-font-family);
+}
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+.font-inter {
+  font-family: 'Inter', sans-serif;
+  font-weight: bolder;
+}
+.icons {
+  color: black;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

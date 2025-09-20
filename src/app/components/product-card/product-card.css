@@ -1,0 +1,67 @@
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image {
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Tag placement */
+.status-tag {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 5;
+  width: auto;
+}
+
+/* Action buttons */
+.action-buttons {
+  position: absolute;
+  top: 0.5rem;
+  right: -3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: right 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+}
+
+.card-wrapper:hover .action-buttons {
+  right: 0.5rem;
+  opacity: 1;
+}
+
+/* Button look */
+.action-btn {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+/* 📱 Mobile: always show */
+@media (max-width: 768px) {
+  .action-buttons {
+    right: 0.5rem;
+    opacity: 1;
+  }
+  .product-info {
+    min-height: 3.5rem;
+  }
+  .status-tag {
+    font-size: 0.75rem;
+  }
+}

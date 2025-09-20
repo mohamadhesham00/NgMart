@@ -1,59 +1,92 @@
-# NgMart
+# 🛒 ngMart – Angular E-Commerce Platform
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+ngMart is a scalable e-commerce web application built with **Angular**, featuring product listings, a shopping cart, wishlist, and checkout flow.
+The project demonstrates reusable components, routing, guards for role-based access, and integration with a mock API powered by **json-server**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
-```bash
-ng serve
+- Product listing with details view
+- Add to cart and checkout functionality
+- Authentication with route guards (protected routes)
+- Role-based access (e.g., user vs. admin)
+- State management with RxJS & services
+- Responsive UI (mobile & desktop friendly)
+- Mock RESTful API using **json-server**
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Angular, TypeScript, Angular Router, Angular Forms, RxJS, Angular Material
+- **Backend (Mock API):** json-server
+- **Tooling:** Node.js, npm, Angular CLI, Git
+
+---
+
+## 📦 Installation & Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/ngMart.git
+   cd ngMart
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the mock API (must be started before the Angular app)**
+
+   ```bash
+   npx json-server db.json --watch --port 3000
+   ```
+
+4. **Start the Angular app**
+
+   ```bash
+   ng serve
+   ```
+
+5. Open the app in your browser at [http://localhost:4200](http://localhost:4200).
+
+---
+
+## 📂 Project Structure
+
+```
+ngMart/
+│── src/
+│   ├── app/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── models/        # Data models
+│   │   ├── services/      # API & state management
+│   │   ├── guards/        # Route guards
+│   │   ├── pages/         # Feature pages (Products, Cart, Checkout, Auth)
+│   │   └── app-routing.module.ts
+│   └── assets/
+│── db.json                # Mock API data
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📸 Screenshots
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+(Add some screenshots or GIFs here to showcase the UI)
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🤝 Contributing
 
-```bash
-ng generate --help
-```
+Contributions, issues, and feature requests are welcome!
+Feel free to open a pull request or an issue.
 
-## Building
+---
 
-To build the project run:
+## 📜 License
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the **MIT License** – feel free to use and modify it.

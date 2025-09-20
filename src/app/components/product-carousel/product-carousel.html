@@ -1,0 +1,13 @@
+<p-carousel
+  *ngIf="products$ | async as products"
+  [value]="products"
+  [numVisible]="3"
+  [numScroll]="1"
+  [autoplayInterval]="2500"
+  [circular]="true"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template let-product #item>
+    <app-product-card [product]="product"></app-product-card>
+  </ng-template>
+</p-carousel>

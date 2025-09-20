@@ -1,0 +1,85 @@
+<main class="container product-details-container">
+  <div class="row g-4">
+    <div class="product-images col-lg-6" *ngIf="product">
+      <div class="product-main-img mb-3">
+        <img [src]="mainImage" [alt]="product.title" class="img-fluid rounded" />
+      </div>
+      <div class="product-thumbs d-flex gap-2">
+        @for (img of product.images; track $index) {
+        <img
+          [src]="img"
+          class="img-thumbnail thumb-img"
+          [alt]="product.title + ' Thumbnail'"
+          (click)="onThumbnailClick(img)"
+        />
+        }
+      </div>
+    </div>
+
+    <div class="col-lg-6 product-info" *ngIf="product">
+      <h2 class="product-title">{{ product.title }}</h2>
+      <p class="product-category text-muted">{{ product.category }}</p>
+      <div class="product-rating mb-3">
+        <p-rating [(ngModel)]="product.rating" readonly="true" />
+
+        <span class="ms-2">({{ product.reviews.length }} Reviews)</span>
+      </div>
+      <h3 class="product-price mb-3">${{ product.price }}</h3>
+      <p class="product-description mb-4">{{ product.description }}</p>
+
+      <div class="d-flex align-items-center mb-3 gap-3">
+        <label for="quantity" class="form-label mb-0">Quantity:</label>
+        <p-inputNumber
+          [(ngModel)]="quantity"
+          mode="decimal"
+          [showButtons]="true"
+          inputId="quantity"
+        />
+      </div>
+
+      <button class="btn btn-dark w-100 mb-3" (click)="onAddToCart()">Add to Cart</button>
+
+      <div class="mt-4">
+        <p><strong>Brand:</strong> {{ product.brand }}</p>
+        <p><strong>Availability:</strong> {{ product.availabilityStatus }}</p>
+        <p><strong>SKU:</strong> {{ product.sku }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5 reviews-section" *ngIf="product">
+    <div class="col-12">
+      <ul class="nav nav-tabs" id="productTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="reviews-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#reviews"
+            type="button"
+          >
+            Reviews
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content p-3 border border-top-0" id="productTabContent">
+        <div class="tab-pane fade show active" id="reviews">
+          @for (review of product.reviews; track $index) {
+          <div class="mb-3 p-3 border rounded shadow-sm review-card">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <strong>{{ review.reviewerName }}</strong>
+              <div>
+                <span class="text-warning"></span>
+                <p-rating [(ngModel)]="review.rating" readonly="true" />
+
+                <small class="text-muted ms-2"> ({{ review.date | date : 'shortDate' }}) </small>
+              </div>
+            </div>
+            <p class="mb-0">{{ review.comment }}</p>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

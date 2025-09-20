@@ -1,0 +1,17 @@
+<div class="row p-0 my-4 mx-2">
+  @for (product of products; track $index) {
+  <div class="col-6 col-md-4 col-lg-3 my-2">
+    <app-product-card [product]="product"></app-product-card>
+  </div>
+  }
+</div>
+<p-paginator
+  (onPageChange)="onPageChange($event)"
+  [first]="first"
+  [rows]="perPage"
+  [totalRecords]="totalRecords"
+  [showCurrentPageReport]="true"
+  [showPageLinks]="false"
+  [showJumpToPageDropdown]="false"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+/>

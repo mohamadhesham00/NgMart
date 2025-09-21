@@ -1,0 +1,37 @@
+<h2 class="bold-text text-center mb-4">Login to your Account</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+  <div class="mb-3">
+    <label for="loginUsername" class="form-label">Username</label>
+    <input
+      type="text"
+      id="loginUsername"
+      class="form-control rounded-pill"
+      formControlName="username"
+    />
+    <div class="invalid-feedback d-block" *ngIf="submitted && f.username.errors">
+      <span *ngIf="f.username.errors['required']">Username is required</span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="loginPassword" class="form-label">Password</label>
+    <input
+      type="password"
+      id="loginPassword"
+      class="form-control rounded-pill"
+      formControlName="password"
+    />
+    <div class="invalid-feedback d-block" *ngIf="submitted && f.password.errors">
+      <span *ngIf="f.password.errors['required']">Password is required</span>
+      <span *ngIf="f.password.errors['minlength']"> Password must be at least 6 characters </span>
+    </div>
+  </div>
+
+  <div class="d-grid mt-4">
+    <button type="submit" class="btn btn-dark rounded-pill">Login</button>
+  </div>
+
+  <div class="text-center mt-3">
+    <span class="text-danger">{{ loginError }}</span>
+  </div>
+</form>

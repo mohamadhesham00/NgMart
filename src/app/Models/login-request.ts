@@ -1,5 +1,4 @@
-export interface Iuser {
+interface LoginRequest {
   username: string;
-  email: string;
   password: string;
 }

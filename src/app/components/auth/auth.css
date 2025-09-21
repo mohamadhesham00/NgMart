@@ -1,0 +1,62 @@
+body {
+  background-color: #f2f0f1;
+}
+
+.auth-container {
+  min-height: 80vh;
+  padding: 2rem 1rem;
+}
+
+.auth-box {
+  max-width: 500px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tab-buttons {
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 50px;
+}
+
+.tab-buttons button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  position: relative;
+  z-index: 10;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.tab-buttons button.active {
+  color: #ffffff;
+}
+
+.active-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 50px;
+  transition: left 0.3s ease;
+  z-index: 5;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  color: #dc3545;
+}

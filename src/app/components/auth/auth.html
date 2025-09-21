@@ -1,0 +1,20 @@
+<main class="auth-container d-flex justify-content-center align-items-center">
+  <div class="auth-box card rounded-3 p-4 p-md-5 w-100">
+    <div class="tab-buttons d-flex rounded-pill bg-body-secondary mb-4">
+      <button class="btn btn-transparent rounded-pill" [class.active]="isLogin" (click)="toggle()">
+        Login
+      </button>
+      <button class="btn btn-transparent rounded-pill" [class.active]="!isLogin" (click)="toggle()">
+        Sign Up
+      </button>
+      <div class="active-background" [ngStyle]="{ left: isLogin ? '0%' : '50%' }"></div>
+    </div>
+
+    <div class="tab-content login-content" [class.active]="isLogin">
+      <app-login></app-login>
+    </div>
+    <div class="tab-content signup-content" [class.active]="!isLogin">
+      <app-register></app-register>
+    </div>
+  </div>
+</main>

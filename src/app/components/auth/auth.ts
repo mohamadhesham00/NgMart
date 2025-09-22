@@ -13,6 +13,5 @@ export class Auth {
   isLogin: boolean = true;
   toggle() {
     this.isLogin = !this.isLogin;
-    console.log('current value is ', this.isLogin);
   }
 }

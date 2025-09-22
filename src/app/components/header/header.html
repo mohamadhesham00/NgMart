@@ -37,8 +37,10 @@
             <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
           </li>
         </ul>
-        <form class="d-flex flex-grow-1" role="search">
+        <form class="d-flex flex-grow-1" role="search" (ngSubmit)="onSearch()">
           <input
+            [(ngModel)]="searchTerm"
+            name="search"
             class="form-control me-2 font-poppins rounded-3"
             type="search"
             placeholder="Search"

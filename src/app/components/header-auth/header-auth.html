@@ -1,8 +1,8 @@
 @if (isUserLogged) {
 
-<a routerLink="/wishlist">
+<!-- <a routerLink="/wishlist">
   <i class="icons fa-solid fa-heart"></i>
-</a>
+</a> -->
 <a routerLink="/cart">
   <i class="icons fa-solid fa-cart-shopping"></i>
 </a>
@@ -16,6 +16,6 @@
 
 } @else{
 
-<a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+<a class="nav-link" routerLink="/auth" routerLinkActive="active">Login</a>
 
 }

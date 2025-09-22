@@ -1,0 +1,41 @@
+<div class="d-lg-none text-end p-2">
+  <button class="btn btn-outline-dark" id="filterToggleBtn">
+    <i class="bi bi-funnel"></i> Filters
+  </button>
+</div>
+
+<aside>
+  <h4>Filters</h4>
+
+  <!-- Categories -->
+  <div class="category-filter-list mb-3">
+    <h6>Category</h6>
+    <select class="form-select" [(ngModel)]="selectedCategory">
+      <option [ngValue]="null">All</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+  </div>
+
+  <!-- Price -->
+  <!-- <div class="mb-3">
+    <h6>Price</h6>
+    <input
+      class="w-100 price-range"
+      type="range"
+      [min]="minPrice"
+      [max]="maxPrice"
+      [(ngModel)]="price"
+    />
+
+    <div class="d-flex justify-content-between">
+      <span>{{ minPrice }}</span>
+      <span>{{ price }}</span>
+      <span>{{ maxPrice }}</span>
+    </div>
+  </div> -->
+
+  <button class="btn btn-dark w-100 filter-btn" (click)="applyFilter()">Apply Filter</button>
+  <button class="btn w-100 mt-3 btn-outline-dark clear-btn" (click)="clearFilter()">
+    Clear All
+  </button>
+</aside>

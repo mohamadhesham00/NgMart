@@ -19,7 +19,7 @@
     <div class="col-lg-6 product-info" *ngIf="product">
       <h2 class="product-title">{{ product.title }}</h2>
       <p class="product-category text-muted">{{ product.category }}</p>
-      <div class="product-rating mb-3">
+      <div class="product-rating mb-3 d-flex">
         <p-rating [(ngModel)]="product.rating" readonly="true" />
 
         <span class="ms-2">({{ product.reviews.length }} Reviews)</span>
@@ -30,6 +30,7 @@
       <div class="d-flex align-items-center mb-3 gap-3">
         <label for="quantity" class="form-label mb-0">Quantity:</label>
         <p-inputNumber
+          [disabled]="!isUserLogged"
           [(ngModel)]="quantity"
           mode="decimal"
           [showButtons]="true"
@@ -37,7 +38,13 @@
         />
       </div>
 
-      <button class="btn btn-dark w-100 mb-3" (click)="onAddToCart()">Add to Cart</button>
+      <button
+        class="btn btn-dark w-100 mb-3"
+        [disabled]="!isUserLogged || !quantity"
+        (click)="onAddToCart()"
+      >
+        Add to Cart
+      </button>
 
       <div class="mt-4">
         <p><strong>Brand:</strong> {{ product.brand }}</p>

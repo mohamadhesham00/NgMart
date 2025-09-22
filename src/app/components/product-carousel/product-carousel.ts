@@ -19,9 +19,10 @@ export class ProductCarousel {
   /**
    *
    */
-  constructor(private _productsService: ProductsService, public _productUiHelper: ProductUiHelper) {
-    console.log('ProductCarousel component initialized');
-  }
+  constructor(
+    private _productsService: ProductsService,
+    public _productUiHelper: ProductUiHelper
+  ) {}
   ngOnInit() {
     this.responsiveOptions = [
       {
@@ -51,8 +52,6 @@ export class ProductCarousel {
         numScroll: 1,
       },
     ];
-    this.products$ = this._productsService
-      .getProductsWithPagination(3, 10)
-      .pipe(map((res) => res.data));
+    this.products$ = this._productsService.loadProductCarousel().pipe(map((res) => res.data));
   }
 }

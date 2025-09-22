@@ -1,0 +1,20 @@
+<div class="cart-item mb-3">
+  <div class="row">
+    <div class="col-12 col-lg-2 text-center">
+      <img [src]="item.product.thumbnail" [alt]="item.product.title" class="cart-item-image" />
+    </div>
+    <div class="col-12 col-lg-5 cart-item-details">
+      <h5 class="item-title">{{ item.product.title }}</h5>
+      <p>{{ item.product.description }}</p>
+      <p class="item-price">{{ item.product.price | currency }}</p>
+    </div>
+    <div class="col-12 col-lg-3 d-flex align-items-center quantity-control ms-auto">
+      <button (click)="decrease.emit()">-</button>
+      <input type="number" [value]="item.quantity" readonly class="form-control" />
+      <button (click)="increase.emit()">+</button>
+      <button class="remove-btn" (click)="remove.emit()">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

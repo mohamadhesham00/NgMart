@@ -26,7 +26,13 @@
           rounded="true"
           [outlined]="true"
         />
-        <p-button icon="pi pi-shopping-cart" class="action-btn" rounded="true" />
+        <p-button
+          icon="pi pi-shopping-cart"
+          class="action-btn"
+          [disabled]="!isUserLogged"
+          (click)="addToCart($event)"
+          rounded="true"
+        />
       </div>
     </div>
   </div>

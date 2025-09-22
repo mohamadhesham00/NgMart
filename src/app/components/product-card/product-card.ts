@@ -3,6 +3,8 @@ import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IProduct } from 'app/Models/iproduct';
+import { AuthService } from 'app/services/auth-service';
+import { CartService } from 'app/services/cart-service';
 import { ProductUiHelper } from 'app/services/product-ui-helper';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
@@ -15,13 +17,23 @@ import { Tag } from 'primeng/tag';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
+  isUserLogged!: boolean;
+
   currentImage!: string;
 
   @Input() product!: IProduct; // Use a proper interface or class for 'any'
-  constructor(public _productUiHelper: ProductUiHelper) {}
+  constructor(
+    public _productUiHelper: ProductUiHelper,
+    private _cartService: CartService,
+    private _authService: AuthService
+  ) {}
   ngOnInit(): void {
     // Set the initial image to the product's thumbnail
     this.currentImage = this.product.thumbnail;
+
+    this._authService.getIsUserLogged().subscribe((isLogged) => {
+      this.isUserLogged = isLogged;
+    });
   }
 
   onMouseEnter() {
@@ -34,5 +46,10 @@ export class ProductCard {
   onMouseLeave() {
     // Revert to the original thumbnail image
     this.currentImage = this.product.thumbnail;
+  }
+  addToCart(event: Event) {
+    event.stopPropagation(); // prevent click from bubbling to the routerLink
+
+    this._cartService.addItem(this.product);
   }
 }
